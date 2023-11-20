@@ -1,9 +1,11 @@
 import bodyParser from "body-parser";
-import { configDotenv } from "dotenv";
+// import { configDotenv } from "dotenv";
 import { createInvitation } from "./wizarr.js";
 import express from "express";
+import fs from "fs";
 import { sendEmail } from "./email.js";
-import fs from "fs";  // Import the file system module
+
+// Import the file system module
 
 // Create express app
 const app = express();
@@ -13,7 +15,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Configure dotenv to use .env file
-configDotenv({ path: ".env" });
+// configDotenv({ path: ".env" });
 
 app.post("/sellix-webhook", async (req, res) => {
     // Debug logging for request body
@@ -21,7 +23,7 @@ app.post("/sellix-webhook", async (req, res) => {
         console.log("Request Body:", req.body);
         console.log("Email:", req.body.data.customer_email);
     }
-    
+
     // Check if webhook event is subscription:created
     if (req.body.event != "subscription:created") {
         res.status(200).send("OK");
