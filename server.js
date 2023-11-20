@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import { createInvitation } from "./wizarr.js";
 import express from "express";
 import fs from "fs";
+import path from "path";
 import { sendEmail } from "./email.js";
 
 // Import the file system module
@@ -52,7 +53,7 @@ app.post("/sellix-webhook", async (req, res) => {
         await sendEmail(email, code);
 
         // Write email and code to a text file
-        fs.appendFileSync("email_and_codes.txt", `Email: ${email}, Code: ${code}\n`);
+        fs.appendFileSync(path.join("/emails", "email_and_codes.txt"), `Email: ${email}, Code: ${code}\n`);
 
     } catch (error) {
         // Failed to create invitation
