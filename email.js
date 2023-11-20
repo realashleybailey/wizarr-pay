@@ -23,7 +23,7 @@ const getTransport = () => createTransport({
  */
 const emailTemplate = (code) => {
     const template = readFileSync(process.env.EMAIL_TEMPLATE, 'utf8');
-    const server_url = process.env.WIZARR_URL;
+    const server_url = process.env.WIZARR_URL_EXTERNAL;
 
     let html = template;
 
