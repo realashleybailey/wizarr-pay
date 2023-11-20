@@ -1,0 +1,7 @@
+services:
+  server:
+    image: realashleybailey/wizarr-pay
+    environment:
+      NODE_ENV: production
+    ports:
+      - 6925:6925
