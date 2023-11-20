@@ -12,8 +12,7 @@ name: Publish Docker image
 on:
   push:
     
-permissions:
-      packages: write
+permissions: write-all
 
 jobs:
   push_to_registry:
