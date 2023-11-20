@@ -29,6 +29,7 @@ const emailTemplate = (code) => {
 
     html = html.replaceAll('[SERVER_URL]', server_url)
     html = html.replaceAll('[INVITE_CODE]', code);
+    html = html.replaceAll('[EMAIL_URL_CDN]', process.env.EMAIL_URL_CDN);
 
     return html;
 }
